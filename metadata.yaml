@@ -1,8 +1,6 @@
 homepage: "https://www.intastellarsolutions.com/"
 documentation: "https://developers.intastellarsolutions.com/cookie-solutions/docs"
-repository: "
-  git: "
+repository:
+  git:
     url: "https://github.com/Intastellar-Solutions-International/intastellar-consents-solutions-tagmanger"
     branch: "main"
-  "
-"
