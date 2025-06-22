@@ -21,4 +21,4 @@ versions:
   - sha: d7deaa16af149d49810c74fb9a946002f587a9af
     version: 1.0.1
     date: 2025-06-22
-    changelog: "Fix: Add user data and personalization consent settings to default and update commands"
+    changelog: "Fix: Added all missing required consent types to default and update commands"
