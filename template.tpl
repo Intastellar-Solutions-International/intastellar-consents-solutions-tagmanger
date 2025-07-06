@@ -88,8 +88,50 @@ ___TEMPLATE_PARAMETERS___
           {
             "param": {
               "type": "SELECT",
+              "name": "ad_user_data",
+              "displayName": "Ads User Data",
+              "macrosInSelect": true,
+              "selectItems": [
+                {
+                  "value": "granted",
+                  "displayValue": "granted"
+                },
+                {
+                  "value": "denied",
+                  "displayValue": "denied"
+                }
+              ],
+              "simpleValueType": true,
+              "defaultValue": "denied"
+            },
+            "isUnique": false
+          },
+          {
+            "param": {
+              "type": "SELECT",
+              "name": "ad_personalization",
+              "displayName": "Ads Personalization",
+              "macrosInSelect": true,
+              "selectItems": [
+                {
+                  "value": "granted",
+                  "displayValue": "granted"
+                },
+                {
+                  "value": "denied",
+                  "displayValue": "denied"
+                }
+              ],
+              "simpleValueType": true,
+              "defaultValue": "denied"
+            },
+            "isUnique": false
+          },
+          {
+            "param": {
+              "type": "SELECT",
               "name": "analytics_storage",
-              "displayName": "analytics",
+              "displayName": "Analytics",
               "macrosInSelect": true,
               "selectItems": [
                 {
@@ -110,7 +152,7 @@ ___TEMPLATE_PARAMETERS___
             "param": {
               "type": "SELECT",
               "name": "functionality_storage",
-              "displayName": "functionality",
+              "displayName": "Functionality",
               "macrosInSelect": true,
               "selectItems": [
                 {
@@ -131,7 +173,7 @@ ___TEMPLATE_PARAMETERS___
             "param": {
               "type": "SELECT",
               "name": "personalization_storage",
-              "displayName": "personalization",
+              "displayName": "Personalization",
               "macrosInSelect": true,
               "selectItems": [
                 {
@@ -152,7 +194,7 @@ ___TEMPLATE_PARAMETERS___
             "param": {
               "type": "SELECT",
               "name": "security_storage",
-              "displayName": "security",
+              "displayName": "Security",
               "macrosInSelect": true,
               "selectItems": [
                 {
@@ -359,6 +401,8 @@ if (data.command === 'default') {
   data.settingsTable.forEach(setting => {
     const settingObject = {
       ad_storage: setting.ad_storage,
+      ad_user_data: setting.ad_user_data,
+      ad_personalization: setting.ad_personalization,
       analytics_storage: setting.analytics_storage,
       functionality_storage: setting.functionality_storage,
       personalization_storage: setting.personalization_storage,
@@ -367,6 +411,8 @@ if (data.command === 'default') {
     };
     const tagManagerConsent = {
       ad_storage: setting.ad_storage,
+      ad_user_data: setting.ad_user_data,
+      ad_personalization: setting.ad_personalization,
       analytics_storage: setting.analytics_storage,
       functionality_storage: setting.functionality_storage,
       personalization_storage: setting.personalization_storage,
@@ -384,6 +430,8 @@ if (data.command === 'default') {
 if (data.command === 'update') {
   gtag('consent', 'update', {
     ad_storage: data.ad_storage_update,
+    ad_user_data: data.ad_user_data_update,
+    ad_personalization: data.ad_personalization_update,
     analytics_storage: data.analytics_storage_update,
     functionality_storage: data.functionality_storage_update,
     personalization_storage: data.personalization_storage_update,
@@ -391,6 +439,8 @@ if (data.command === 'update') {
   });
   updateConsentState({
     ad_storage: data.ad_storage_update,
+    ad_user_data: data.ad_user_data_update,
+    ad_personalization: data.ad_personalization_update,
     analytics_storage: data.analytics_storage_update,
     functionality_storage: data.functionality_storage_update,
     personalization_storage: data.personalization_storage_update,
@@ -591,6 +641,68 @@ ___WEB_PERMISSIONS___
                   {
                     "type": 1,
                     "string": "security_storage"
+                  },
+                  {
+                    "type": 8,
+                    "boolean": true
+                  },
+                  {
+                    "type": 8,
+                    "boolean": true
+                  }
+                ]
+              },
+              {
+                "type": 3,
+                "mapKey": [
+                  {
+                    "type": 1,
+                    "string": "consentType"
+                  },
+                  {
+                    "type": 1,
+                    "string": "read"
+                  },
+                  {
+                    "type": 1,
+                    "string": "write"
+                  }
+                ],
+                "mapValue": [
+                  {
+                    "type": 1,
+                    "string": "ad_user_data"
+                  },
+                  {
+                    "type": 8,
+                    "boolean": true
+                  },
+                  {
+                    "type": 8,
+                    "boolean": true
+                  }
+                ]
+              },
+              {
+                "type": 3,
+                "mapKey": [
+                  {
+                    "type": 1,
+                    "string": "consentType"
+                  },
+                  {
+                    "type": 1,
+                    "string": "read"
+                  },
+                  {
+                    "type": 1,
+                    "string": "write"
+                  }
+                ],
+                "mapValue": [
+                  {
+                    "type": 1,
+                    "string": "ad_personalization"
                   },
                   {
                     "type": 8,
